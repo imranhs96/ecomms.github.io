@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'shop/style.css' %}">    
+<title>E-Comm</title>
+</head>
+<body>
+    <div class="content">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="card crad-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col">
+                            <input type="search" name='item_name' placeholder="Searching For Elements" class="form-control form-control-borderless">
+                        </div>
+                        <div class="col-auto">
+                            <button class="btn btn-success" types="submit">Search</button>
+                        </div>
+                       
+                    </div>
+                </form>
+                
+            </div>
+        </div>
+        <div class="row">
+            {% for product in product_object %}
+            <div class="col-md-3">
+                <div class="card">
+                    <img src="{{ product.image }}" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{ product.title }}
+                        </div>
+                        <div class="card-text">
+                            &#8377; &nbsp; {{ product.price}}
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            {% endfor%}
+        </div>
+        <div class="row">
+            <div class="col-md-3 offset-md-4">
+                <ul class="pagination">
+                    {% if  product_object.has_previous %}
+                    <li class="page-item">
+                        <a class ="page-link" href="?page={{ product_object.previous_page_number }}">Previous</a>
+                    </li>
+                    {% endif %}
+
+                    <li class="page-item">
+                        <a class ="page-link" href="?page={{ product_object.number }}">Current</a>
+                    </li>
+
+
+                    {% if product_object.has_next %}
+                    <li class="page-item">
+                        <a class ="page-link" href="?page={{ product_object.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

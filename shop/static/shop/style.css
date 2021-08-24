@@ -1,0 +1,36 @@
+*{
+    margin:0px;
+    padding: 10px;
+}
+body{
+    background-image: linear-gradient(to left top, #9ab2d6, #12958f, #446c70, #82c7ab, #a8b983);
+}
+.card-text{
+    color:rgb(214, 66, 66);
+    font-weight: 800;
+}
+.card-title{
+    color:rgb(37, 16, 4);
+    font-weight: 900;
+}
+.row .col-md-3 .pagination .page-item a{
+    text-decoration:None;
+    background:rgb(210, 213, 224);
+    color: rgb(0, 100, 0);
+    font-weight: 900;
+    border:8px;
+    padding: 6px;
+}
+.row .col-md-3 .pagination .page-item a:hover{
+    text-decoration:None;
+    background:rgb(55, 69, 230);
+    color: rgb(197, 236, 88);
+    font-weight: 900;
+
+}
+.row .col-md-3 .pagination .page-item{
+    border-radius: 6px;
+    color-adjust: 90px;
+    
+    margin: 10px;
+}
